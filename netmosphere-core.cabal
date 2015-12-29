@@ -13,7 +13,7 @@ name:                netmosphere-core
 version:             0.0.1.0
 
 -- A short (one-line) description of the package.
-synopsis:            The core of Netmosphere
+synopsis:            The core module of Netmosphere
 
 -- A longer description of the package.
 -- description:         
@@ -51,17 +51,24 @@ cabal-version:       >=1.10
 
 library
   -- Modules exported by the library.
-  -- exposed-modules:     
+  exposed-modules:     Netmosphere.Core
+                     , Netmosphere.Core.IP
+                     , Netmosphere.Core.IPTrie
+                     , Netmosphere.IPFilter
+                     , Netmosphere.IPFilter.Parallel
   
   -- Modules included in this library but not exported.
   -- other-modules:       
   
   -- LANGUAGE extensions used by modules in this package.
-  -- other-extensions:    
+  other-extensions:    PackageImports
   
   -- Other library packages from which modules are imported.
-  build-depends:       base >=4.8 && <4.9
-                     , bytestring-trie >= 0.2.4.0 && <0.3.0.0
+  build-depends:       accelerate >= 0.15.0.0 && <0.16
+                     , base >=4.8 && <4.9
+                     , bytestring >=0.10 && <0.11
+                     , bytestring-trie >=0.2.4 && <0.3
+                     , vector >=0.11.0.0 && <0.12
   
   -- Directories containing source files.
   hs-source-dirs:      src
